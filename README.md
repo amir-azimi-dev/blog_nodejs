@@ -1,12 +1,12 @@
-structure of project: MVC
+### structure of project: MVC
+---
 
----------------------------------------
+### template engin: handlebars
 
-//template engin: handlebars
-// npm install express-handlebars
-
-
-
+```
+npm install express-handlebars
+```
+```
 let express = require('express');
 let exphbs  = require('express-handlebars');
 
@@ -20,33 +20,39 @@ app.set('view engine', 'handlebars');
 app.get("/", (req, res) => {
     res.render("main", {layout: false, myName: "Amir"}); 
 });
-
-
+```
+```
 // in main.handlebars:
 <h1>my name is {{myName}}</h1>
+```
+#### linking a file to main.handlebars:
 
-///////////////////////////
-// linking a file to main.handlebars:
-
-// way 1:
+#### way 1:
+```
 app.use(express.static(pathOfStaticFiles));
 
 // in main.handlebars:
 <head>
     <link rel='stylesheet' href='pathOfStaticFiles/css/style.css'>
 </head>
+```
 
-
-// way 2:
+#### way 2:
+```
 app.use("/a_prefix", express.static(pathOfStaticFiles));
 
 // in main.handlebars:
 <head>
     <link rel='stylesheet' href='a_prefix/pathOfStaticFiles/css/style.css'>
 </head>
----------------------------------------
+```
+---
 
-// npm install module-alias
+### module-alias
+```
+npm install module-alias
+```
+```
 // in package.json:
 "_moduleAliases": {
     "@root": ".",
@@ -55,32 +61,50 @@ app.use("/a_prefix", express.static(pathOfStaticFiles));
     "@routes": "app/routes",
     "@services": "app/services",
     "@database": "./database"
-  },
+},
+```
 
-in index file put this import: require("module_alias/register")
+in index file put this import:
+```
+require("module_alias/register");
+```
 
----------------------------------------
+using example:
+```
+const db = require("@database/fileName");
+```
 
-// jalali-moment (moment that include persian date too):
-// npm install jalali-moment
+---
+
+### jalali-moment (moment that include persian date too):
+```
+npm install jalali-moment
+```
+```
 const jm = require("jalali-moment");
 posts.forEach(post => {
     post.persianCreatedAt = jm(post.created_at).locale("fa").format("YYYY/MM/DD"); 
 });
+```
+---
 
----------------------------------------
+### gravatar (global avatar) for avatar image
+```
+npm install gravatar
+```
 
-// gravatar (global avatar) for avatar image
-// npm install gravatar
-
+```
 const gravatar = require("gravatar");
 gravatar.url(userEmail, options); --> img url
+```
 
----------------------------------------
+---
 
-// bcrypt: hash password
-// npm install bcrypt
-
+### bcrypt: hash password
+```
+npm install bcrypt
+```
+```
 const bcrypt = require("bcrypt");
 
 exports.hashPassword = plainPassword => {
@@ -90,12 +114,15 @@ exports.hashPassword = plainPassword => {
 exports.comparePassword = (plainPassword, hashedPassword) => {
     return bcrypt.compareSync(plainPassword, hashedPassword);
 };
+```
 
----------------------------------------
+---
 
-// connect-flash
-// npm install connect-flash
-
+### connect-flash
+```
+npm install connect-flash
+```
+```
 const flash = require("connect-flash);
 const cookieParser = require("cookie-parser);
 const session = require("express-session);
@@ -136,23 +163,28 @@ app.get("/", (req, res) => {
         req.flash("success")
     }
 })
+```
 
 ---------------------------------------
 
 // default session store is memoryStore.
 
-// connect-redis: redis a no-sql key-value DBMS (database management system).
-// first install redis database on you computer. open terminal:
-// wsl
-// sudo service redis-server start
-// redis-cli --> 127.0.0.1:6379> --> 127.0.0.1: localhost, 6379: port of DB
+### 1: connect-redis:
+#### redis a no-sql key-value DBMS (database management system).
+##### first install redis database on you computer. open terminal:
+##### wsl
+```
+sudo service redis-server start
+redis-cli --> 127.0.0.1:6379> --> 127.0.0.1: localhost, 6379: port of DB
+```
+##### install <<redis manager>> from microsoft store. in connection tab lick on new --> host: 127.0.0.1, port 6379, password:
+##### now you can see sessions in db0
 
-// install <<redis manager>> from microsoft store. in connection tab click on new --> host: 127.0.0.1, port 6379, password:
-// now you can see sessions in db0
-
-// now install packages:
-// npm install redis connect-redis
-
+### install packages:
+```
+npm install redis connect-redis
+```
+```
 const RedisStore = require("connect-redis").default;
 const { createClient } = require("redis");
 
@@ -173,13 +205,14 @@ app.use(session({
     saveUninitialized: false, // recommended: only save session when data exists
     cookie: { maxAge: 60000 },
 }));
+```
 
-
-///////////////
-
-// express-mysql-session: in big application that its session change multiple times, decrease performance.
-// npm install express-mysql-session
-
+### 2: express-mysql-session: 
+##### in big application that its session change multiple times, decrease performance.
+```
+npm install express-mysql-session
+```
+```
 const session = require("express-session");
 const mySQLstore = require("express-mysql-session)(session);
 const mySQLOptions = {
@@ -199,44 +232,46 @@ app.use(session({
     saveUninitialized: true,
     cookie: { maxAge: 60000 },
 }));
+```
+---
 
----------------------------------------
-
-// i use lodash for handling nested comments
-// npm install lodash
-
+### use lodash for handling nested comments
+```
+npm install lodash
+```
+```
 const _ = require("lodash");
 _.groupBy(comments, "parent");
+```
+---
 
----------------------------------------
+### sanitize-html: sanitize content of text editor.
 
-// sanitize-html: sanitize content of text editor.
+---
 
----------------------------------------
+### text editor: tinymce or ckeditor
 
-text editor: tinymce
+---
 
----------------------------------------
+### express-fileupload:
+```
+npm install express-fileopload
+```
+##### [in html form: enctype="multipart/form-data"]()
 
-// express-fileupload:
-
-// npm install express-fileopload
-
-// in html form: enctype="multipart/form-data"
-
-
+```
 const fileUpload = require("express-fileupload");
 
+```
 
-
-// UUID: universal unique identifier
-
-// npm instal uuid
-
-
+#### UUID: universal unique identifier
+```
+npm instal uuid
+```
+```
 const {v4: uuidv4} = require("uuid");
-
-
+```
+```
 const path = require("path");
 
 const newFileExt = path.extname(req.files.thumbnail.name);
@@ -247,13 +282,13 @@ const fileNewPath = path.join(process.cwd(), "public", "upload", "thumbnails", n
 req.files.thumbnail.mv(fileNewPath, (err => {
      console.log(err);
 }));
+```
+---
 
-
----------------------------------------
-
-// sharp for manipulating images (like resize images)
+### sharp for manipulating images (like resize images)
 // npm install sharp
 
+```
 const sharp = require("sharp");
 
 sharp(addressOfImg)
@@ -261,3 +296,4 @@ sharp(addressOfImg)
     .rotate()
     .png()
     .toFile("output.webP", (err, result) => ...)
+```
