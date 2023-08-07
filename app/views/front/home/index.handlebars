@@ -1,0 +1,71 @@
+<!--page title start-->
+<section class="section-gap section-top pb-0 bg-white text-center">
+    <!--<div class="hero-img bg-overlay" data-overlay="1" style="background-image: url(/static/front-assets/img/price-banner.jpg);"></div>-->
+    <div class="container">
+        <div class="row justify-content-md-center align-items-center">
+            <div class="col-md-7">
+                <!-- heading -->
+                <h2 class="">
+                    وبلاگ و مقاله
+                </h2>
+                <p class="lead text-muted">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از
+                    طراحان گرافیک است.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از
+                    طراحان گرافیک است.</p>
+            </div>
+            <div class="col-md-8">
+                <img src="/static/front-assets/img/blog/blog-banner.jpg" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+<!--page title end-->
+
+<!--blog start-->
+<section class="section-gap">
+    <div class="container">
+        <div class="row justify-content-between">
+            {{>sidebar}}
+            <div class="col-lg-8">
+                {{#each posts}}
+                <div class="blog-post">
+                    {{#if this.thumbnail}}
+                    <a href="#"><img id="post-img" class="rounded mb-lg-5 mb-4" src="/static/upload/thumbnails/{{this.thumbnail}}"
+                            alt=" card image"></a>
+                    {{/if}}
+
+                    <h3 class=""><a href="/p/{{this.slug}}">{{this.title}}</a></h3>
+                    <div class="meta font-lora my-4">
+                        <a href="#">{{this.author}}</a>
+                        <span class="meta-separator"></span>
+                        <a href="#">{{this.jalaliCreatedAt}}</a>
+                    </div>
+                    <p class="text-muted">{{this.excerptedContent}} ...</p>
+                </div>
+                {{/each}}
+
+                
+                <div class="pagination justify-content-center">
+
+                    <a href="/{{#if hasKeyword}}search/{{pagination.prevPage}}/?keyword={{keyword}}
+                    {{else if hasCategory}}category/{{pagination.prevPage}}/?keyword={{keyword}}
+                    {{else}}{{pagination.prevPage}}
+                    {{/if}}"
+
+
+                        class="btn btn-dark {{#if pagination.isTheFirstPage}}disabled{{/if}}"><i
+                            class="fa fa-angle-right"></i></a>
+                    <div class="h6 mt-2 mx-4">
+                        {{pagination.currentPage}} از {{pagination.pagesCount}}
+                    </div>
+                    <a href="/{{#if hasKeyword}}search/{{pagination.nextPage}}/?keyword={{keyword}}
+                    {{else if hasCategory}}category/{{pagination.nextPage}}/?keyword={{keyword}}
+                    {{else}}{{pagination.nextPage}}
+                    {{/if}}"
+                        class="btn btn-dark {{#if pagination.isTheLastPage}}disabled{{/if}}"><i
+                            class="fa fa-angle-left"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--blog end-->

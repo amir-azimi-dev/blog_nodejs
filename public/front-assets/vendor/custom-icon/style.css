@@ -1,0 +1,288 @@
+@font-face {
+  font-family: 'Clab-Icon-Set';
+  src:  url('fonts/Clab-Icon-Setd2cc.eot?tqpgud');
+  src:  url('fonts/Clab-Icon-Setd2cc.eot?tqpgud#iefix') format('embedded-opentype'),
+    url('fonts/Clab-Icon-Setd2cc.ttf?tqpgud') format('truetype'),
+    url('fonts/Clab-Icon-Setd2cc.woff?tqpgud') format('woff'),
+    url('fonts/Clab-Icon-Setd2cc.svg?tqpgud#Clab-Icon-Set') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="vl-"], [class*=" vl-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'Clab-Icon-Set' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.vl-avatar-boy:before {
+  content: "\e900";
+}
+.vl-avatar-girl:before {
+  content: "\e901";
+}
+.vl-avatar-man:before {
+  content: "\e902";
+}
+.vl-avatar-woman:before {
+  content: "\e903";
+}
+.vl-bag:before {
+  content: "\e904";
+}
+.vl-bell:before {
+  content: "\e905";
+}
+.vl-bomb:before {
+  content: "\e906";
+}
+.vl-bond:before {
+  content: "\e907";
+}
+.vl-bootstrap-b:before {
+  content: "\e908";
+}
+.vl-box:before {
+  content: "\e909";
+}
+.vl-brush:before {
+  content: "\e90a";
+}
+.vl-brush2:before {
+  content: "\e90b";
+}
+.vl-bucket:before {
+  content: "\e90c";
+}
+.vl-building:before {
+  content: "\e90d";
+}
+.vl-bulb:before {
+  content: "\e90e";
+}
+.vl-burger:before {
+  content: "\e90f";
+}
+.vl-calendar:before {
+  content: "\e910";
+}
+.vl-camera:before {
+  content: "\e911";
+}
+.vl-card:before {
+  content: "\e912";
+}
+.vl-cart1:before {
+  content: "\e913";
+}
+.vl-cart2:before {
+  content: "\e914";
+}
+.vl-chat:before {
+  content: "\e915";
+}
+.vl-chip:before {
+  content: "\e916";
+}
+.vl-clab-a:before {
+  content: "\e917";
+}
+.vl-clip1:before {
+  content: "\e918";
+}
+.vl-clip2:before {
+  content: "\e919";
+}
+.vl-code:before {
+  content: "\e91a";
+}
+.vl-code2:before {
+  content: "\e91b";
+}
+.vl-coffee-cup:before {
+  content: "\e91c";
+}
+.vl-cross-circle:before {
+  content: "\e91d";
+}
+.vl-cross:before {
+  content: "\e91e";
+}
+.vl-delivery-van:before {
+  content: "\e91f";
+}
+.vl-device1:before {
+  content: "\e920";
+}
+.vl-device2:before {
+  content: "\e921";
+}
+.vl-diamond:before {
+  content: "\e922";
+}
+.vl-disc:before {
+  content: "\e923";
+}
+.vl-download:before {
+  content: "\e924";
+}
+.vl-envelop1:before {
+  content: "\e925";
+}
+.vl-envelop2:before {
+  content: "\e926";
+}
+.vl-eye:before {
+  content: "\e927";
+}
+.vl-file-box:before {
+  content: "\e928";
+}
+.vl-file:before {
+  content: "\e929";
+}
+.vl-finger-print:before {
+  content: "\e92a";
+}
+.vl-finger-touch:before {
+  content: "\e92b";
+}
+.vl-folder:before {
+  content: "\e92c";
+}
+.vl-gear:before {
+  content: "\e92d";
+}
+.vl-ghost:before {
+  content: "\e92e";
+}
+.vl-gift-box:before {
+  content: "\e92f";
+}
+.vl-graph:before {
+  content: "\e930";
+}
+.vl-identity-card:before {
+  content: "\e931";
+}
+.vl-lamp:before {
+  content: "\e932";
+}
+.vl-laptop:before {
+  content: "\e933";
+}
+.vl-layer:before {
+  content: "\e934";
+}
+.vl-lens-layer:before {
+  content: "\e935";
+}
+.vl-map:before {
+  content: "\e936";
+}
+.vl-minus-circle:before {
+  content: "\e937";
+}
+.vl-minus:before {
+  content: "\e938";
+}
+.vl-mobile:before {
+  content: "\e939";
+}
+.vl-money-bag:before {
+  content: "\e93a";
+}
+.vl-money:before {
+  content: "\e93b";
+}
+.vl-monitor1:before {
+  content: "\e93c";
+}
+.vl-monitor2:before {
+  content: "\e93d";
+}
+.vl-muscle:before {
+  content: "\e93e";
+}
+.vl-newspaper:before {
+  content: "\e93f";
+}
+.vl-note-book:before {
+  content: "\e940";
+}
+.vl-note:before {
+  content: "\e941";
+}
+.vl-plus-circle:before {
+  content: "\e942";
+}
+.vl-plus:before {
+  content: "\e943";
+}
+.vl-pop-corn:before {
+  content: "\e944";
+}
+.vl-printer:before {
+  content: "\e945";
+}
+.vl-refresh:before {
+  content: "\e946";
+}
+.vl-road-indicator:before {
+  content: "\e947";
+}
+.vl-rocket:before {
+  content: "\e948";
+}
+.vl-rtl:before {
+  content: "\e949";
+}
+.vl-search:before {
+  content: "\e94a";
+  vertical-align: middle;
+}
+.vl-sheild:before {
+  content: "\e94b";
+}
+.vl-slider:before {
+  content: "\e94c";
+}
+.vl-store:before {
+  content: "\e94d";
+}
+.vl-support:before {
+  content: "\e94e";
+}
+.vl-tag:before {
+  content: "\e94f";
+}
+.vl-watch:before {
+  content: "\e950";
+}
+.vl-arrow-dotted-left:before {
+  content: "\e951";
+}
+.vl-arrow-dotted-right:before {
+  content: "\e952";
+}
+.vl-arrow-down:before {
+  content: "\e953";
+}
+.vl-arrow-left:before {
+  content: "\e954";
+}
+.vl-arrow-right:before {
+  content: "\e955";
+}
+.vl-arrow-up:before {
+  content: "\e956";
+}

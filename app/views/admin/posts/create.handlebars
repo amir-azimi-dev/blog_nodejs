@@ -1,0 +1,94 @@
+<h1 class="mb-5">ایجاد مطلب جدید</h1>
+{{#if errors}}
+<div class="alert alert-danger">
+    {{#each errors}}
+    <p>{{this}} !</p>
+    {{/each}}
+</div>
+{{/if}}
+
+<form action="/admin/posts/store" method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+        <input type="text" class="form-control form-control-lg" placeholder="عنوان مطلب" name="postTitle" value="{{contents.contents.title}}">
+    </div>
+    <div class="mb-3">
+        <input type="text" class="form-control form-control-lg" placeholder="نامک مطلب" name="postSlug" value="{{contents.contents.slug}}">
+    </div>
+
+    <div class="mb-3">
+        <textarea class="form-control form-control-lg" placeholder="مقدمه" rows="4"
+            name="intro">{{contents.contents.intro}}</textarea>
+    </div>
+
+    <div class="mb-3">
+        <textarea class="form-control form-control-lg" id="editor" placeholder="محتوای مطلب" rows="6"
+            name="postContent">{{contents.contents.content}}</textarea>
+    </div>
+
+
+    <div class="mb-3">
+        <select name="author" class="form-select form-select-lg text-muted">
+            <option value="">نویسنده ...</option>
+            {{#each users}}
+            {{#if this.isAuthor}}
+            <option value="{{this.id}}" {{isSelected this.id}}>
+                {{this.full_name}}
+            </option>
+            {{/if}}
+            {{/each}}
+        </select>
+    </div>
+
+    <div class="my-4">
+        <h4><label for="thumbnail">تصویر شاخص</label></h4>
+        <input name="thumbnail" id="thumbnail" type="file" class="form-control">
+    </div>
+
+
+    <h4 class="mt-3 mb-2">وضعیت مطلب</h4>
+
+    <div class="form-check form-check-dark mb-2">
+        <input value="{{postStatus.DRAFT}}" class="form-check-input" type="radio" name="postStatus" id="draft" checked>
+        <label class="form-check-label" for="draft">
+            پیش‌نویس
+        </label><br>
+
+        <input value="{{postStatus.REVIEW}}" class="form-check-input" type="radio" name="postStatus" id="checked">
+        <label class="form-check-label" for="checked">
+            در حال بازبینی
+        </label><br>
+
+        <input value="{{postStatus.PUBLISHED}}" class="form-check-input" type="radio" name="postStatus" id="published">
+        <label class="form-check-label" for="published">
+            منتشر شده
+        </label>
+    </div>
+
+    <h4 class="mt-3">برچسب ها</h4>
+    <div class="form-check form-check-inline">
+        <input name="nature" value="1" class="form-check-input" type="checkbox" id="nature">
+        <label class="form-check-label" for="nature">nature</label>
+    </div>
+    <div class="form-check form-check-inline">
+        <input name="back_end" value="1" class="form-check-input" type="checkbox" id="back-end">
+        <label class="form-check-label" for="back-end">back-end</label>
+    </div>
+    <div class="form-check form-check-inline">
+        <input name="front_end" value="1" class="form-check-input" type="checkbox" id="front-end">
+        <label class="form-check-label" for="front-end">front-end</label>
+    </div>
+    <div class="form-check form-check-inline">
+        <input name="express" value="1" class="form-check-input" type="checkbox" id="express">
+        <label class="form-check-label" for="express">express</label>
+    </div>
+    <div class="form-check form-check-inline">
+        <input name="javascript" value="1" class="form-check-input" type="checkbox" id="javascript">
+        <label class="form-check-label" for="javascript">javascript</label>
+    </div>
+
+    <br>
+    <button type="submit" class="btn btn-primary mt-4">ذخیره‌سازی</button>
+
+</form>
+
+<script src="/static/assets/js/app.js"></script>

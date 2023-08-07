@@ -1,0 +1,52 @@
+<h1 class="mb-5">ایجاد کاربر جدید</h1>
+
+{{#if errors.length}}
+<div class="alert alert-danger">
+    {{#each errors}}
+    <p>{{this}} !</p>
+    {{/each}}
+</div>
+{{/if}}
+
+<form action="/admin/users/store" method="post">
+    <div class="mb-3">
+        <input type="text" class="form-control form-control-lg" placeholder="نام کامل کاربر"
+            name="fullName">
+    </div>
+    <div class="mb-3">
+        <input type="text" class="form-control form-control-lg" placeholder="ایمیل" name="userEmail">
+    </div>
+
+    <div class="mb-3">
+        <input type="password" class="form-control form-control-lg" placeholder="کلمه عبور" name="userPassword">
+    </div>
+
+    <h4 class="mt-3 mb-2 mt-4">نقش کاربری</h4>
+
+    <div class="form-check form-check-dark mb-4">
+        <input value="{{userStatuses.USER}}" class="form-check-input" type="radio" name="userRole" id="user" checked>
+        <label class="form-check-label" for="user">
+            کاربر
+        </label><br>
+
+        <input value="{{userStatuses.AUTHOR}}" class="form-check-input" type="radio" name="userRole" id="author">
+        <label class="form-check-label" for="author">
+            نویسنده
+        </label><br>
+
+        <input value="{{userStatuses.ADMIN}}" class="form-check-input" type="radio" name="userRole" id="manager">
+        <label class="form-check-label" for="manager">
+            مدیر
+        </label>
+    </div>
+
+
+    <h4 class="mt-3 mb-2 mt-4">درباره‌ی کاربر</h4>
+    <div class="mb-5">
+        <textarea class="form-control form-control-lg" placeholder="توضیحات کاربر" rows="6"
+            name="description"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">ذخیره‌سازی</button>
+
+</form>

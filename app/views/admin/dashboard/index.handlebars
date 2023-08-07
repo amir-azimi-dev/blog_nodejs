@@ -1,0 +1,60 @@
+<div class="content">
+    <div class="card bg-light">
+        <h2 class="card-title">تعداد کاربران <i class="fa-solid fa-users"></i></h2>
+        <h2>{{totalUses}}</h2>
+    </div>
+    <div class="card bg-light">
+        <h2 class="card-title">تعداد مطالب <i class="fa-solid fa-edit"></i></h2>
+        <h2>{{totalPosts}}</h2>
+    </div>
+    <div class="card bg-light">
+        <h2 class="card-title">تعداد دیدگاه‌ها <i class="fa-solid fa-comments"></i></h2>
+        <h2>{{totalComments}}</h2>
+    </div>
+    <div class="card bg-light">
+        <h2 class="card-title">تعداد بازدیدها <i class="fa-solid fa-eye"></i></h2>
+        <h2>{{totalViews}}</h2>
+    </div>
+
+    <div class="quick-draft bg-light p-5 rounded-2">
+        {{#if errors}}
+        {{#each errors}}
+        <div class="alert alert-danger">{{this}}</div>
+        {{/each}}
+        {{/if}}
+
+        {{#if success}}
+        {{#each success}}
+        <div class="alert alert-success">{{this}}</div>
+        {{/each}}
+        {{/if}}
+
+        <h3 class="mb-4">پیش‌نویس سریع</h3>
+        <form action="" method="post">
+            <input name="postTitle" class="form-control" type="text" placeholder="عنوان مطلب">
+            <textarea name="postContent" class="form-control my-3" placeholder="محتوای مطلب" rows="6"></textarea>
+            <button class="btn btn-dark">ذخیره‌سازی</button>
+        </form>
+    </div>
+    <div class="recent-comments bg-light p-3 rounded-2">
+                    <h3 class=" mb-4">آخرین دیدگاه‌های رسیدگی نشده</h3>
+        <table class="table table-striped table-light">
+            <thead>
+                <tr>
+                    <th>کاربر</th>
+                    <th>دیدگاه</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each recentComments}}
+                <tr>
+                    <td>{{this.author}}</td>
+                    <td>{{this.comment}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="/static/assets/js/dashboard.js"></script>

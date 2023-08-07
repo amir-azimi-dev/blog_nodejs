@@ -1,0 +1,59 @@
+{{#if hasError}}
+{{#each errors}}
+<div class="alert alert-success">
+    <p class="m-0">{{this}}</p>
+</div>
+{{/each}}
+{{/if}}
+
+{{#if hasSuccess}}
+{{#each success}}
+<div class="alert alert-success">
+    <p class="m-0">{{this}}</p>
+</div>
+{{/each}}
+{{/if}}
+
+<h4 class="mb-3">تنظیمات</h4>
+<script src="/static/assets/js/settings.js"></script>
+
+<form action="/admin/settings" method="post">
+    <div class="row">
+        <div class="col-4">
+            <label class="form-label mb-3">عمومی</label>
+            <input name="web_title" id="title" type="text" class="form-control" placeholder="عنوان وبسایت"
+                value="{{configs.web_title}}">
+
+            <textarea name="web_description" value="" class="form-control mt-4" rows="5"
+                placeholder="توضیحات وبسایت">{{configs.web_description}}</textarea>
+
+        </div>
+        <div class="col-3 mx-auto">
+            <label class="form-label mb-3">محتوا</label>
+            <input name="posts_per_page" id="num-of-content" type="number" class="form-control "
+                value="{{configs.posts_per_page}}">
+            <div class="form-check mt-4">
+                <label class="form-check-label" for="comment">کاربران می‌توانند دیدگاه ثبت کنند</label>
+                <input name="allow_users_comments" value="1" id="comment" type="checkbox" class="form-check-input" {{#if
+                    configs.allow_users_comments}}checked{{/if}}>
+            </div>
+        </div>
+        <div class="col-3">
+            <label class="form-label">عضویت</label>
+            <div class="form-check">
+                <label class="form-check-label" for="allow-register">هر کسی می‌تواند ثبت نام کند</label>
+                <input name="allow_users_register" value="1" id="allow-register" type="checkbox"
+                    class="form-check-input" {{#if configs.allow_users_register}}checked{{/if}}>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-4 mx-auto">
+            <button class="btn btn-outline-dark w-100" type="submit">ذخیره</button>
+        </div>
+    </div>
+
+</form>
+
+</form>

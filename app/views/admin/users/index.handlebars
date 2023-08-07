@@ -1,0 +1,56 @@
+<link rel="stylesheet" href="/static/assets/css/posts/style.css">
+
+<div class="contents">
+    {{#if hasError}}
+    {{#each errors}}
+    <div class="alert alert-success">
+        <p class="m-0">{{this}}</p>
+    </div>
+    {{/each}}
+    {{/if}}
+
+    {{#if hasSuccess}}
+    {{#each success}}
+    <div class="alert alert-success">
+        <p class="m-0">{{this}}</p>
+    </div>
+    {{/each}}
+    {{/if}}
+
+
+    <div class="title mb-5">
+        <h3 class="text-muted">لیست کاربران</h3>
+        <a class="text-decoration-none text-light" href="/admin/users/create">
+            <button id="create-content-btn" class="btn btn-dark">ایجاد
+                کاربر جدید <i class=" fa-solid fa-plus"></i></button></a>
+    </div>
+    <table class="table table-hover">
+        <thead>
+            <tr class="bg-dark text-light">
+                <th>#</th>
+                <th>نام</th>
+                <th>ایمیل</th>
+                <th>تاریخ ایجاد</th>
+                <th>عملیات</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each users }}
+            <tr class="{{statusBgClass this.role}}">
+                <td>{{this.id}}</td>
+                <td class="user-name">
+                    <span class="fw-bold">{{this.full_name}}</span>
+                </td>
+                <td>{{this.email}}</td>
+                <td>{{this.persianCreatedAt}}</td>
+                <td>
+                    <a class="text-decoration-none text-dark" href="/admin/users/edit/{{this.id}}"><i
+                            class="fa-solid fa-pen me-4"></i></a><a class="text-decoration-none text-dark"
+                        href="/admin/users/delete/{{this.id}}"><i class="fa-solid fa-trash"></i></a>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+<script src="/static/assets/js/users.js"></script>

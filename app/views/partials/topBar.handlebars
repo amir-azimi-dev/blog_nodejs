@@ -1,0 +1,81 @@
+<!--header start-->
+<header class="app-header transparent-header transparent-header-dark-nav">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <!--<div class="branding-wrap">-->
+                <!--brand start-->
+                <div class="navbar-brand float-left">
+                    <a class="" href="index-2.html">
+                        <img class="logo-light" src="/static/front-assets/img/logo.png"
+                            srcset="/static/front-assets/img/logo@2x.png 2x" alt="CLab">
+                        <a href="/">
+                            <img class="logo-dark" src="/static/front-assets/img/logo-dark.png"
+                                srcset="/static/front-assets/img/logo-dark@2x.png 2x" alt="CLab"></a>
+                    </a>
+                </div>
+                <!--brand end-->
+                <!--start responsive nav toggle button-->
+                <div class="nav-btn hamburger hamburger--slider js-hamburger ">
+                    <div class="hamburger-box">
+                        <div class="hamburger-inner"></div>
+                    </div>
+                </div>
+                <!--end responsive nav toggle button-->
+                <!--</div>-->
+
+                <!--top mega menu start-->
+                <nav id="vl-menu">
+                    <!--start nav-->
+                    <ul class="vlmenu light-sub-menu slide-effect float-right">
+                        {{#if user}}
+                        <li><a href="#">{{user.full_name}} <i class="fa fa-angle-down"></i></a>
+                            <!--start level 2-->
+                            <ul>
+                                <li>
+                                    <a href="#" class="d-flex">
+                                        <i class="fa-solid fa-user font-size-20 text-muted"></i>
+                                        <div class="font-weight-700">ورود به پنل کاربری </div>
+                                    </a>
+                                </li>
+                                <hr>
+                                <li>
+                                    <a href="/user/logout" class="d-flex">
+                                        <i class="fa-solid fa-right-from-bracket font-size-20 text-muted"></i>
+                                        <div class="font-weight-700">خروج</div>
+                                    </a>
+                                </li>
+                            </ul>
+                            <!--end level 2-->
+                        </li>
+                        {{else}}
+                        <li class="font-weight-bold"><a href="/auth/login">ورود <i class="fa-solid fa-user"></i></a>
+                        {{/if}}
+                        <li><a href="#"> پشتیبانی <i class="fa fa-angle-down"></i></a>
+                            <!--start level 2-->
+                            <ul>
+                                <li>
+                                    <a href="#" class="d-flex">
+                                        <i class="vl-support font-size-20"></i>
+                                        <div class="font-weight-700">برای پشتیبانی بیایید</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" target="_blank" class="d-flex">
+                                        <i class="vl-file font-size-20"></i>
+                                        <div class="font-weight-700">کمک آنلاین</div>
+                                    </a>
+                                </li>
+                            </ul>
+                            <!--end level 2-->
+                        </li>
+
+                    </ul>
+                    <!--end nav-->
+                </nav>
+                <!--top mega menu end-->
+            </div>
+        </div>
+    </div>
+</header>
+<!--header end-->

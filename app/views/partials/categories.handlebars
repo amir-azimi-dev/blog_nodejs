@@ -1,0 +1,7 @@
+{{#if post.hasCategory}}
+<h6 class="mb-0">دسته‌بندی‌ها:
+    {{#each post.categories}}
+    <a href="/category/1/?keyword={{this}}" class="badge badge-pill badge-dark p-2">{{this}}</a>
+    {{/each}}
+</h6>
+{{/if}}

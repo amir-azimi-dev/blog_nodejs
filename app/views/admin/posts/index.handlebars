@@ -1,0 +1,57 @@
+<link rel="stylesheet" href="/static/assets/css/posts/style.css">
+
+<div class="contents">
+    <div class="title mb-5">
+        <h3 class="text-muted">لیست مطالب</h3>
+        <a class="text-decoration-none text-light" href="/admin/posts/create">
+            <button id="create-content-btn" class="btn btn-dark">ایجاد
+                مطلب جدید <i class=" fa-solid fa-plus"></i></button></a>
+    </div>
+
+    {{#if hasError}}
+    {{#each errors}}
+    <div class="alert alert-danger">
+        <p class="m-0">{{this}}</p>
+    </div>
+    {{/each}}
+    {{/if}}
+
+    {{#if hasSuccess}}
+    {{#each success}}
+    <div class="alert alert-success">
+        <p class="m-0">{{this}}</p>
+    </div>
+    {{/each}}
+    {{/if}}
+
+
+    <table class="table table-hover">
+        <thead>
+            <tr class="bg-dark text-light">
+                <th>#</th>
+                <th>عنوان</th>
+                <th>نویسنده</th>
+                <th>تاریخ ایجاد</th>
+                <th>تعداد بازدید</th>
+                <th>عملیات</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each posts }}
+            <tr class="{{statusBgClass this.status}}">
+                <td>{{this.id}}</td>
+                <td class="fw-bold">{{this.title}}</td>
+                <td>{{this.full_name}}</td>
+                <td>{{this.persianCreatedAt}}</td>
+                <td>{{this.views}}</td>
+                <td>
+                    <a class="text-decoration-none text-dark" href="/admin/posts/edit/{{this.id}}"><i
+                            class="fa-solid fa-pen me-4"></i></a><a class="text-decoration-none text-dark"
+                        href="/admin/posts/delete/{{this.id}}"><i class="fa-solid fa-trash"></i></a>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+<script src="/static/assets/js/posts.js"></script>

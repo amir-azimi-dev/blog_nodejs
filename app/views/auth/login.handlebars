@@ -1,0 +1,38 @@
+<h1 class="fw-bold">ورود</h1>
+<p class="text-muted mt-3 mb-5">
+    در این بخش می‌توانید در وبسایت عضو شوید.
+</p>
+
+{{#if hasError}}
+<div class="alert alert-danger">
+    {{#each errors}}
+    <p class="m-0">{{this}} !</p>
+    {{/each}}
+</div>
+{{/if}}
+
+{{#if hasSuccess}}
+<div class="alert alert-success">
+    {{#each success}}
+    <p class="m-0">{{this}} !</p>
+    {{/each}}
+</div>
+{{/if}}
+
+
+<form action="/auth/login" method="post">
+    <input id="email" name="email" type="email" class="form-control form-control-lg" placeholder="ایمیل">
+    <input name="password" type="password" class="form-control form-control-lg my-3" placeholder="رمز عبور">
+    <div class="form-check">
+        <input name="remember-me" value="1" class="form-check-input " id="remember-me" type="checkbox"><label
+            class="form-check-label" for="remember-me">مرا به خاطر بسپار</label>
+    </div>
+
+    <a href="#" class="text-decoration-none text-primary d-block my-3">فراموشی رمز عبور ؟</a>
+
+    <p>حساب کاربری ندارید؟ <a href="/auth/register" class="text-decoration-none text-primary">هم‌اکنون
+            ایجاد
+            کنید</a></p>
+
+    <button type="submit" class="btn btn-l btn-outline-primary mt-2 px-4 py-2">ورود</button>
+</form>

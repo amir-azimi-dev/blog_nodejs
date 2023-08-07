@@ -1,0 +1,37 @@
+<link rel="stylesheet" href="/static/assets/css/comments/style.css">
+
+<h4 class="text-muted mb-3">دیدگاه‌ها</h4>
+<table class="table align-middle table-striped table-hover">
+    <thead>
+        <tr class="bg-dark text-light">
+            <th>آواتار</th>
+            <th>نویسنده</th>
+            <th>دیدگاه</th>
+            <th>در پاسخ به</th>
+            <th>تاریخ ارسال</th>
+            <th>عملیات</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each comments}}
+        <tr class="{{commentBG this.status}}">
+            <td>
+                <div class="user-avatar">
+                    <img src="{{this.userAvatarURL}}" alt="{{this.author_id}}">
+                </div>
+            </td>
+            <td>{{this.user_name}}</td>
+            <td class="comment fw-bold">{{this.comment}}</td>
+            <td>{{this.title}}</td>
+            <td>{{this.jalali_created_at}}</td>
+            <td>
+                <a href="/admin/comments/approve/{{this.id}}" class="btn btn-sm btn-success">تایید</a>
+                <a href="/admin/comments/reject/{{this.id}}" class="btn btn-sm btn-warning">رد</a>
+                <a href="/admin/comments/delete/{{this.id}}" class="btn btn-sm btn-danger">حذف</a>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+<script src="/static/assets/js/comments.js"></script>

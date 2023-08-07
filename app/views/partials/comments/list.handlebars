@@ -1,0 +1,44 @@
+<ul>
+    {{#each comments}}
+    <li class="comment">
+        <article id="{{this.id}}" class="comment-body">
+            <footer class="comment-meta">
+                <div class="comment-author">
+                    <img alt="" src="{{this.avatarURL}}" class="">
+                    <b class="fn">
+                        <a href="#" rel="external nofollow" class="url">
+                            {{this.user_name}}
+                        </a>
+                    </b>
+                    <span class="says">گفته:</span>
+                </div>
+                <!-- .comment-author -->
+
+                <div class="comment-metadata">
+                    <a href="#">
+                        <time>
+                            {{this.jalaliCreatedAt}}
+                        </time>
+                    </a>
+                </div><!-- .comment-metadata -->
+
+            </footer><!-- .comment-meta -->
+
+            <div class="comment-content">
+                <p>{{this.comment}}</p>
+            </div><!-- .comment-content -->
+
+            <div class="reply">
+                <a rel="nofollow" class="comment-reply-link" onclick="event.preventDefault()" href="">پاسخ</a>
+            </div>
+        </article><!-- .comment-body -->
+        {{#if (hasChild this.id)}}
+        <ul class="children">
+            {{>comments/list comments=(getChildren this.id)}}
+        </ul><!-- .children -->
+        {{/if}}
+
+
+    </li><!-- #comment-## -->
+    {{/each}}
+</ul>

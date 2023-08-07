@@ -1,0 +1,25 @@
+<h1 class="fw-bold">ثبت نام</h1>
+<p class="text-muted my-3 mb-5">
+    در این بخش می‌توانید در وبسایت ثبت نام کنید.
+</p>
+
+{{#if hasError}}
+<div class="alert alert-danger">
+    {{#each errors}}
+    <p>{{this}} !</p>
+    {{/each}}
+</div>
+{{/if}}
+
+
+<form action="/auth/register" method="post">
+    <input id="email" name="email" type="email" class="form-control form-control-lg" placeholder="ایمیل">
+    <input name="password" type="password" class="form-control form-control-lg my-3" placeholder="رمز عبور">
+    <input name="confirm_password" type="password" class="form-control form-control-lg my-3" placeholder="تکرار رمز عبور">
+
+    <p class="mt-4">در حال حاضر حساب کاربری دارید؟ <a href="/auth/login"
+            class="text-decoration-none text-primary">هم‌اکنون
+            وارد شوید</a></p>
+
+    <button type="submit" class="btn btn-l btn-outline-primary mt-2 px-4 py-2">ثبت نام</button>
+</form>

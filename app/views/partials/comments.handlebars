@@ -1,0 +1,84 @@
+<p id="slug" class="d-none">{{post.slug}}</p>
+
+<section class="section-gap">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <!--comments area start-->
+                <div class="comments" id="comments">
+                    <h2 class="comments-title"> نظرات</h2>
+                    {{>comments/list comments=post.comments}}
+                </div>
+                {{#if allowComment}}
+                <!--comments area end-->
+
+                <!--comment form start-->
+                {{#if hasError}}
+                {{#each errors}}
+                <div class="alert alert-danger">
+                    <p>{{this}}</p>
+                </div>
+                {{/each}}
+                {{/if}}
+
+                {{#if hasSuccess}}
+                {{#each success}}
+                <div class="alert alert-success">
+                    <p>{{this}}</p>
+                </div>
+                {{/each}}
+                {{/if}}
+
+
+                <div class="comment-respond">
+                    <h3 class="comment-reply-title mb-lg-5 mb-4">
+                        دیدگاه خود را ثبت کنید
+                    </h3>
+                    <form role="form" class="comment-form" action="/p/{{post.slug}}/comments" method="post">
+                        <div class="row">
+                            <div class=" col-md-4">
+                                <div class="form-group">
+                                    <input name="user_name" type="text" class="form-control"
+                                        placeholder="{{#if user}}{{user.full_name}}{{else}}نام*{{/if}}"
+                                        value="{{#if user}}{{user.full_name}}{{else}}نام*{{/if}}" required disabled>
+                                </div>
+                            </div>
+                            <div class=" col-md-4">
+                                <div class="form-group ">
+                                    <input name="user_email" type="email" class="form-control"
+                                        placeholder="{{#if user}}{{user.email}}{{else}}ایمیل*{{/if}}"
+                                        value="{{#if user}}{{user.email}}{{else}}ایمیل*{{/if}}" required disabled>
+                                </div>
+                            </div>
+                            <div class=" col-md-4">
+                                <div class="form-group ">
+                                    <input name="user_url" type="text" class="form-control" placeholder="وب سایت">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="controls">
+                                <textarea name="user_comment" id="message" rows="5" placeholder="نظر*"
+                                    class="form-control" required=""></textarea>
+                            </div>
+                        </div>
+                        <p class="text-muted">برای ثبت نظر اگر وارد نشده‌اید باید وارد شوید.</p>
+                        <p class="text-muted">آدرس ایمیل شما منتشر نخواهد شد. فیلدهای مورد نیاز علامت گذاری شده اند *
+                        </p>
+                        <div class="text-center mt-md-5">
+                            <button type="submit" class="btn btn-theme">ارسال</button>
+                        </div>
+                    </form>
+                </div>
+                {{else}}
+                <div class="alert alert-danger">
+                    <p class="m-0">در حال حاضر امکان ثبت نظر وجود ندارد !</p>
+                </div>
+                {{/if}}
+                <!--comment form end-->
+            </div>
+        </div>
+    </div>
+</section>
+<script src="/static/front-assets/js/comments.js"></script>

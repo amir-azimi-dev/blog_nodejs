@@ -1,0 +1,53 @@
+<!--page title start-->
+<section class="section-gap pb-0">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <section class="section-gap px-lg-5">
+                    <div class="hero-img bg-overlay rounded overflow-hidden" data-overlay="2"
+                        style="background-image: url('/static/upload/thumbnails/{{post.thumbnail}}');">
+                    </div>
+                    <div class="container">
+                        <div class="row align-items-center text-white">
+                            <div class="col-md-8">
+                                <h3 class="">{{post.title}}</h3>
+                                <div class="meta font-lora my-4 text-white">
+                                    <a id="category" href="#">{{post.author.full_name}}</a>
+                                    <span class="meta-separator"></span>
+                                    <a href="#">{{post.jalaliCreatedAt}}</a>
+                                </div>
+                                <h5><i class="fa-solid fa-eye"></i> {{post.views}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+<!--page title end-->
+
+<!--blog start-->
+<section class="section-gap pb-0">
+    <div class="container">
+        <div class="row justify-content-center ">
+            <div class="blog-post border-0 blog-single text-align-start w-75">
+                <h3>{{post.title}}</h3>
+                <p>{{post.intro}}</p>
+                <p>{{{post.content}}}</p>
+
+                {{>categories}}
+
+            </div>
+        </div>
+    </div>
+</section>
+
+{{>author}}
+{{!-- {{>author this}} --}}
+
+<hr>
+{{>comments}}
+
+{{>relatedPosts}}
+<!--blog end-->

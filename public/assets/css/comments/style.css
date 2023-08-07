@@ -1,0 +1,129 @@
+@font-face {
+    font-family: "sans";
+    src: url("../../font/IRANSansWeb_Light.eot") format("eot"),
+    url("../../font/IRANSansWeb_Light.woff") format("woff"),
+    url("../../font/IRANSansWeb_Light.woff2") format("woff2");
+}
+
+:root {
+    --first-gradient: linear-gradient(to right, #fdfd01e6, #29f32975);
+    --second-gradient: linear-gradient(to left, #fdfd01e6, #29f32975);
+}
+
+* {
+    font-family: "sans";
+}
+
+body {
+    direction: rtl;
+}
+
+.top-bar {
+    z-index: 999;
+}
+
+.top-bar .logo {
+    cursor: pointer;
+}
+
+.avatar-container {
+    background: gray url("../../images/avatar/avatar-1.jpg") no-repeat center center/cover;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: relative;
+}
+
+#avatar-name {
+    cursor: pointer;
+}
+
+.online-circle {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    outline: 3px solid #212529;
+    background-color: rgb(31, 204, 31);
+}
+
+.hamburger-menu-container {
+    width: 0;
+    height: calc(100vh - 72px);
+    transition: all 0.3s linear;
+    position: fixed;
+    top: 72px;
+    right: 0;
+}
+
+.active {
+    width: 18%;
+}
+
+.hamburger-ul li a {
+    transition: all 0.1s linear;
+}
+
+.hamburger-ul li a:hover {
+    color: #fff !important;
+}
+
+.hamburger-ul .active {
+    color: #1212ce !important;
+}
+
+.fixed-cover {
+    width: 0;
+    z-index: -2;
+    transition: all 0.3s linear;
+}
+
+.fixed-cover.active {
+    width: 18%;
+}
+
+.main {
+    z-index: 998;
+    width: 80%;
+    margin: 3rem auto;
+}
+
+.user-avatar {
+    width: 45px;
+    height: 45px;
+}
+
+.user-avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.to:hover {
+    font-weight: bolder;
+}
+
+
+.bg-approve {
+    background-color: #29f3295b;
+}
+
+.bg-reject {
+    background-color: #fdfd0167;
+}
+
+.bg-review {
+    animation: review 1s infinite;
+}
+
+
+@keyframes review {
+    0% {
+        background:  var(--first-gradient);
+    }
+    100% {
+        background:  var(--second-gradient);
+    }
+} 

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/1c2be4c5b1.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/static/assets/css/bootstrap/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="/static/assets/css/dashboard/style.css">
+
+    <script src="https://cdn.tiny.cloud/1/qrhwveufsdyy0mv5gvof2bvw7opzi13abmwtk0ntl43wlotp/tinymce/6/tinymce.min.js"
+        referrerpolicy="origin"></script>
+
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="top-bar bg-dark position-sticky top-0">
+        <div class="container">
+            <div class="row py-3">
+                <div class="col-2 logo">
+                    <a href="/admin/dashboard" class="text-decoration-none"><span
+                            class="h2 text-primary">AmirWeb</span><span class="h2 text-light">.ir</span></a>
+                </div>
+                <div class="col-1">
+                    <h2 id="hamburger" class="text-light m-0 h-100 d-flex align-items-center text-muted"><i
+                            class="fa-solid fa-bars"></i>
+                    </h2>
+                </div>
+                <div class="col-3 mx-auto">
+                    <div class="input-group">
+                        <input class="form-control" type="text" placeholder="جستجو کنید">
+                        <div class="input-group-text text-muted"><i class="fa-solid fa-search"></i></div>
+                    </div>
+                </div>
+                <div class="col-2 position-relative d-flex justify-content-evenly align-items-center">
+                    <div class="avatar-container">
+                        <img src="{{user.avatarURL}}" alt="{{user.full_name}}">
+                        <div class="online-circle"></div>
+                    </div>
+                    <p id="avatar-name" class="text-light my-auto">{{user.full_name}}</p>
+
+                    <div id="information" class="bg-light rounded shadow pt-3">
+                        <ul class="list-unstyled">
+                            <li>{{user.full_name}}</li>
+                            <li class="text-muted">{{user.email}}</li>
+
+                            <hr>
+                            <li><a href=""><i class="fa-solid fa-user"></i> پروفایل</a></li>
+
+                            <hr>
+                            <li><a href=""><i class="fa-solid fa-gear"> </i>تنظیمات</a></li>
+
+                            <li><a href="/user/logout"><i class="fa-solid fa-right-from-bracket"></i> خروج</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="vw-100 position-relative d-flex justify-content-start mw-100 overflow-hidden">
+        <div class="hamburger-menu-container overflow-hidden bg-dark active">
+            <div class="hamburger-menu">
+                <ul class="hamburger-ul list-unstyled py-5 px-4">
+                    <li class="mb-4"><a id="dashboard" class="text-muted text-decoration-none h5"
+                            href="/admin/dashboard"><i class="fa-solid fa-home"></i> داشبورد</a></li>
+
+                    <li class="mb-4"><a id="posts" class="text-muted text-decoration-none h5" href="/admin/posts"><i
+                                class="fa-solid fa-edit"></i> مطالب</a></li>
+
+                    <li class="mb-4"><a id="comments" class="text-muted text-decoration-none h5"
+                            href="/admin/comments"><i class="fa-solid fa-message"></i> دیدگاه‌ها</a></li>
+
+                    <li class="mb-4"><a id="users" class="text-muted text-decoration-none h5" href="/admin/users"><i
+                                class="fa-solid fa-users"></i> کاربران</a></li>
+
+                    <li class="mb-4"><a id="settings" class="text-muted text-decoration-none h5"
+                            href="/admin/settings"><i class="fa-solid fa-gear"></i> تنظیمات</a></li>
+
+                    <li class="mb-4"><a id="settings" class="text-muted text-decoration-none h5" href="/"
+                            target="_blank"><i class="fa-solid fa-blog"></i> بلاگ</a></li>
+
+                </ul>
+            </div>
+        </div>
+
+        <div class="fixed-cover active">
+        </div>
+
+        <div class="main">
+            {{{body}}}
+        </div>
+
+
+    </div>
+
+
+    <script src="/static/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/assets/js/common.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<h1 class="mb-5">ویرایش کاربر</h1>
+
+{{#if errors.length}}
+<div class="alert alert-danger">
+    {{#each errors}}
+    <p>{{this}} !</p>
+    {{/each}}
+</div>
+{{/if}}
+
+<form action="/admin/users/update/{{user_data.id}}" method="post">
+    <div class="mb-3">
+        <input value="{{user_data.full_name}}" type="text" class="form-control form-control-lg" id="modal-title"
+            placeholder="نام کامل کاربر" name="fullName">
+    </div>
+    <div class="mb-3">
+        <input value="{{user_data.email}}" type="text" class="form-control form-control-lg" placeholder="ایمیل"
+            name="userEmail">
+    </div>
+
+    {{!-- <div class="mb-3">
+        <input type="password" class="form-control form-control-lg" placeholder="کلمه عبور قبلی" name="oldUserPassword">
+    </div> --}}
+
+    <div class="mb-3">
+        <input type="password" class="form-control form-control-lg" placeholder="کلمه عبور جدید (اگر نمی‌خواهید تغییر دهید خالی بگذارید)" name="newUserPassword">
+    </div>
+
+    <h4 class="mt-3 mb-2 mt-4">نقش کاربری</h4>
+
+    <div class="form-check form-check-dark mb-4">
+        <input value="{{userStatuses.USER}}" class="form-check-input" type="radio" name="userRole" id="user"
+            {{#hasTheRole userStatuses.USER}}checked{{/hasTheRole}}>
+        <label class="form-check-label" for="user">
+            کاربر
+        </label><br>
+
+        <input value="{{userStatuses.AUTHOR}}" class="form-check-input" type="radio" name="userRole" id="author"
+            {{#hasTheRole userStatuses.AUTHOR}}checked{{/hasTheRole}}>
+        <label class="form-check-label" for="author">
+            نویسنده
+        </label><br>
+
+        <input value="{{userStatuses.ADMIN}}" class="form-check-input" type="radio" name="userRole" id="manager"
+            {{#hasTheRole userStatuses.ADMIN}}checked{{/hasTheRole}}>
+        <label class="form-check-label" for="manager">
+            مدیر
+        </label>
+    </div>
+
+
+    <h4 class="mt-3 mb-2 mt-4">توضیحات کاربر</h4>
+    <div class="mb-3">
+        <textarea class="form-control form-control-lg" placeholder="توضیحات کاربر" rows="6"
+            name="description">{{user_data.description}}</textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">ذخیره‌سازی</button>
+
+</form>
