@@ -33,7 +33,7 @@ app.use(express.static(pathOfStaticFiles));
 
 // in main.handlebars:
 <head>
-    <link rel='stylesheet' href='pathOfStaticFiles/css/style.css'>
+    <link rel='stylesheet' href='/pathOfStaticFiles/css/style.css'>
 </head>
 ```
 
