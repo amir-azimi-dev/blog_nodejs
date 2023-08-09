@@ -1,6 +1,8 @@
+require('dotenv').config();
 const db = require("./mysql");
-const {hashPassword} = require("@services/hashServices");
-const userRoles = require("@models/users/usersStatus")();
+require("module-alias/register");
+const {hashPassword} = require("@services/hash");
+const userRoles = require("@models/users/userStatus");
 
 const adminData = {
     full_name: "امیر عظیمی",

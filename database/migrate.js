@@ -1,3 +1,5 @@
+// first create database.
+require('dotenv').config();
 const db = require("./mysql");
 
 const usersSql = `CREATE TABLE IF NOT EXISTS users (\
@@ -36,8 +38,14 @@ parent INT NOT NULL DEFAULT 0);`
 
 const settingsSql = `CREATE TABLE IF NOT EXISTS settings (\
 id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,\
-setting_name VARCHAR(100) NOT NULL,\
+setting_name VARCHAR(100) NOT NULL UNIQUE,\
 setting_value TEXT NOT NULL);`
+
+const initQuery = "INSERT INTO settings (setting_name, setting_value) VALUES ('web_title', '@mir'); \
+INSERT INTO settings (setting_name, setting_value) VALUES ('web_description', 'این بلاگ تحت مالکیت امیر عظیمی است.'); \
+INSERT INTO settings (setting_name, setting_value) VALUES ('posts_per_page', 10); \
+INSERT INTO settings (setting_name, setting_value) VALUES ('allow_users_comments', 1); \
+INSERT INTO settings (setting_name, setting_value) VALUES ('allow_users_register', 1);";
 
 const migrate = async () => {
     const [usersSqlResult] = await db.query(usersSql);
@@ -51,6 +59,9 @@ const migrate = async () => {
     
     const [settingsSqlResult] = await db.query(settingsSql);
     console.log(settingsSqlResult);
+
+    const [initQueryResult] = await db.query(initQuery);
+    console.log(initQueryResult);
 };
 
 migrate();
